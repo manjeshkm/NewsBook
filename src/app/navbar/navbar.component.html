@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container" style="position: relative;">
+    <a class="navbar-brand" routerLink="/home" routerLinkActive="active current">
+      <i class="fa fa-newspaper-o" aria-hidden="true"></i> NEWSBook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <img class="navbar-nav nav-item" [src]="flag" class="rounded" style="height: 60px;left: 233px;position: absolute;" alt="img">
+      <h5 style="color:aliceblue; left: 295px;position: absolute;">{{countryCode}}</h5>
+    <button class=" btn my-2 my-sm-0" style="position: absolute;left: 330px;" (click)="openLg(content)">
+      <i class="fa fa-flag" aria-hidden="true"></i> Choose Country
+    </button>&nbsp;
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Choose Country</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true" style="font-size: 43px;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="position:Absloute">
+        <div class="row" style="position:relative; left:65px;">
+          <ng-container *ngFor="let c of country; let i = index">
+            <div class="col">
+              <div style="display: flex;">
+                <img class="navbar-nav nav-item flexitems" [src]="c.flag" class="rounded" (click)="saveCountry(c)" style="border-color: #1212128c;border-style: solid; border-width: 2px;"
+                  alt="img">
+                  <h4 class="flexitems" style="background-color: rgb(73, 71, 71);height: 32px; width: 35px; color: aliceblue; text-align: center;">{{c.code}}</h4>
+              </div>
+              <h4>{{c.name}}</h4><br>
+            </div>
+            <div *ngIf="(i+1)%3 === 0" class="w-100"></div>
+          </ng-container>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+          <button type="button" (click)="c('Close click')" class="btn btn-success">Close</button>
+        </div> -->
+    </ng-template>
+    <div class="navbar-nav nav-item">
+      <button class=" btn btn-outline-primary my-2 my-sm-0" style="height: 40px;" (click)="open(c)">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i> Subscribe
+      </button>&nbsp;
+      <ng-template #c  let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Subscribtion Form</h4>
+            <button type="button" class="close" aria-label="Close" (click)="statusClear()" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="email">e-mail</label>
+                <div class="input-group">
+                  <input id="email" type="email" ngModel #email="ngModel" class="form-control" placeholder="example@abc.com" name="mail">
+                  <!-- <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                  </div> -->
+                </div>
+              </div>
+              <div [style.color]="statusColor">{{subscribtionStatus}}</div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button  type="button" class="btn btn-outline-dark" (click)="subscribe(email.value)">Subscribe</button>
+          </div>
+        </ng-template>
+      <button class=" btn btn-outline-primary my-2 my-sm-0" style="height: 40px;">
+        <i class="fa fa-list-alt" aria-hidden="true"></i> About Me
+      </button>&nbsp;
+    </div>
+  </div>
+</nav>

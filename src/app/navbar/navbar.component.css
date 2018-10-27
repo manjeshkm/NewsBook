@@ -1,0 +1,32 @@
+.navbar-brand{
+    font-size: xx-large;
+}
+.navbar-nav{
+    font-size: larger;
+}
+.btn-outline-primary{
+    position: relative;
+    /* left: 200px; */
+}
+nav{
+    border: 2px solid rgb(207, 172, 107);
+}
+
+.dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+  }
+  .dark-modal .close {
+    color: white;
+  }
+  .light-blue-backdrop {
+    background-color: #5cb3fd;
+  }
+.flexitems {
+    margin: 8px;
+}
+
+.modal-header {
+    background-color: #06619e;
+    color: aliceblue;
+}

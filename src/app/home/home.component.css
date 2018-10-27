@@ -1,0 +1,30 @@
+ .customise{
+    margin-top: 3px;
+    border: 2px solid rgb(207, 172, 107);
+    width: 670px;
+}
+/* .btn-secondary {
+    color: #fff;
+    background-color: #999797;
+    border-color: #4c5e558c;
+}  */
+/* .card{
+    top: -269px;
+} */
+ /* .form{
+    position: absolute;
+    left: 1033px;
+    top: 85px;
+} */
+
+button:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+.list-group-item-action:focus{
+    background-color: #555;
+    color: white;
+} 
+.list-group-item-action {
+    border-color: #2124228c;
+}

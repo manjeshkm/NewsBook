@@ -1,0 +1,39 @@
+<div class="row">
+  <div>
+    <div class="col sticky-top" style="top: 78px;position: sticky;">
+      <div class="list-group">
+        <button class="list-group-item list-group-item-action" style="background-color: rgb(35, 35, 107); color:aliceblue">Category</button>
+        <button class="list-group-item list-group-item-action" (click)="changeCategory('business')">Business</button>
+        <button class="list-group-item list-group-item-action" (click)="changeCategory('technology')">Technology</button>
+        <button class="list-group-item list-group-item-action" (click)="changeCategory('entertainment')">Entertainment</button>
+        <button class="list-group-item list-group-item-action" (click)="changeCategory('health')">Health</button>
+        <button class="list-group-item list-group-item-action" (click)="changeCategory('science')">Science</button>
+        <button class="list-group-item list-group-item-action" (click)="changeCategory('sports')">Sports</button>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div *ngFor="let n of news; let i = index" class="card customise">
+      <img class="card-img-top" [src]="n.urlToImage" style="height: 300px;" alt="Image Lost">
+      <div class="card-body">
+        <h4 class="card-title">{{n.title}}</h4>
+        <h5 class="card-subtitle mb-2 text-muted">Author: {{n.author}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Date: {{n.publishedAt}}</h6>
+        <h5 class="card-text">{{n.description}}</h5>
+        <p class="card-text">{{n.content}}</p>
+        <a [href]="n.url" class="card-link">Read More</a>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="sticky-top" style="top: 85px; left: 100px">
+      <form class="form-inline form">
+        <input class="form-control mr-sm-2" type="search" name="search" (blur)="newsByQuery(1)" [(ngModel)]="query" placeholder="News by Query"
+          aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="newsByQuery()">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
